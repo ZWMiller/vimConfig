@@ -1,5 +1,5 @@
 """"" Set Color Scheme (~/.vim/colors)
-colo zachVimColors
+colo zachVimColorsSSH
 
 """"" Text Formatting
 set autoindent " Auto indentation
@@ -82,9 +82,9 @@ if has("autocmd")
     " Also don't do it when the mark is in the first line, that is the default
     " position when opening a file.
     autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
     " git commits always start on the first line.
     " From http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
@@ -102,7 +102,30 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-     \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
-
+"" Turn off auto-comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 """"" Root Syntax enabled by ~/.vim/after/syntax/c.vim
+""""" Window Swapping (in window 1, type /wm. Go to window 2, type /pw)
+function! MarkWindowSwap()
+  let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+  "Mark destination
+  let curNum = winnr()
+  let curBuf = bufnr( "%" )
+  exe g:markedWinNum . "wincmd w"
+  "Switch to source and shuffle dest->source
+  let markedBuf = bufnr( "%" )
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' curBuf
+  "Switch to dest and shuffle source->dest
+  exe curNum . "wincmd w"
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' markedBuf
+endfunction
+
+nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
+nmap <silent> <leader>pw :call DoWindowSwap()<CR>
