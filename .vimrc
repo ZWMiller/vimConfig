@@ -1,5 +1,57 @@
 """"" Set Color Scheme (~/.vim/colors)
-colo zachVimColorsSSH
+colo evokai
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setting up Vundle - the vim plugin bundler
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+"Add your bundles here
+
+" To install new ones do: \s to source this update file and then :PluginInstall
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'wincent/Command-T'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'sjl/gundo.vim'
+Plugin 'jQuery'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rizzatti/funcoo.vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'elzr/vim-json'
+Plugin 'briancollins/vim-jst'
+let g:instant_markdown_autostart = 0
+" You can manually trigger markdown previewing with :InstantMarkdownPreview
+Plugin 'suan/vim-instant-markdown'
+" All of your Plugins must be added before the following line
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'wavded/vim-stylus'
+Plugin 't9md/vim-ruby-xmpfilter'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'ngmy/vim-rubocop'
+call vundle#end() 
 
 """"" Text Formatting
 set autoindent " Auto indentation
