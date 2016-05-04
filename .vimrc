@@ -1,5 +1,5 @@
 """"" Set Color Scheme (~/.vim/colors)
-colo evokai
+colo zachVimColorsSSH
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle
@@ -76,6 +76,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l> "<ctrl-l> removes highlights
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set number
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
