@@ -12,7 +12,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " To install new ones do: \s to source this update file and then :PluginInstall
 Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'wincent/Command-T'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-eunuch'
@@ -76,7 +75,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l> "<ctrl-l> removes highlights
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-set number
+set nonumber
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -182,3 +181,6 @@ endfunction
 
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
+
+"" Add search and replace current word
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
